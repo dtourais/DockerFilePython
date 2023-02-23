@@ -82,7 +82,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     numpy  \
     opencv-python  \
     openpyxl  \
-    os  \
+   # os  \ basics
     pandas  \
     PIL  \
     pillow  \
