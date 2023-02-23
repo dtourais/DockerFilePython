@@ -43,7 +43,7 @@ RUN /venv/bin/pip3 install --no-cache-dir\
 # install all other required python packages
 
 RUN /venv/bin/pip3 install --no-cache-dir \
-    abc  \
+    #abc  \
     ahrs  \
     alembic  \
     argparse  \
