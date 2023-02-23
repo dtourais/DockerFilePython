@@ -102,14 +102,14 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     setuptools  \
    # shutil  \ basics matlab
     sqlalchemy  \
-    struct  \
-    sys  \
+    # struct  \ basics
+    # sys  \ basics
     tabulate  \
     tensorboardx  \
     tensorflow  \
     tifffile  \
-    time  \
-    torch  \
+    # time  \
+    torch  \ basics
     torchvision  \
     typing  \
     uncompyle6  \
