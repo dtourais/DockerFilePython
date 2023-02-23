@@ -76,7 +76,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     kaleido  \ 
     lxml  \
     mako  \
-    math  \
+    # math  \ basics
     matplotlib  \
     multiprocessing  \
     numpy  \
