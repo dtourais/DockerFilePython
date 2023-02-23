@@ -51,7 +51,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     bokeh  \
     #collections  \ 
     #copy  \
-    csv  \
+    #csv  \
     dash  \
     dash-bootstrap-components  \
     dash_daq  \
