@@ -35,64 +35,43 @@ RUN /venv/bin/pip3 install --no-cache-dir\
     ipykernel \
     ptvsd \
     plotly 
-#Présents sur la version dockerfile donnée mais l'image ne se build pas avec 
-#    eog \
-#    libsm6 \
- #   libxext6 \
- #   wget
-# install all other required python packages
 
+
+# install all other required python packages
 RUN /venv/bin/pip3 install --no-cache-dir \
-    #abc  \ basics
     ahrs  \
     alembic  \
     argparse  \
     beautifulsoup4  \
     bokeh  \
-    #collections  \ basics 
-    #copy  \ python absics
-    #csv  \ python basics
     dash  \
     dash-bootstrap-components  \
     dash_daq  \
     datetime  \
     docopt  \
     dpkt  \
-    # functools  \
-    #Remplacement glob par glob2, a vérifier
     glob2  \ 
     gpsd-py3  \
     gpxpy  \
     graphviz  \
     gunicorn  \
     gym  \
-   # hashlib  \ python basics
     h5py  \
-    # io  \ python basics
     ipympl  \
-   # itertools  \ python basics
     joblib  \
-   # json  \ Basics
     kaleido  \ 
     lxml  \
     mako  \
-    # math  \ basics
     matplotlib  \
-   # multiprocessing  \ basics
     numpy  \
     opencv-python  \
     openpyxl  \
-   # os  \ basics
     pandas  \
-    # PIL  \ PIL is pillow
     pillow  \
-   # pprint  \ basics
     psutil  \
     pylint  \
     pyserial  \
     python-dateutil  \
-    #random  \ basics
-    #re  \ basics
     requests  \
     requests_html  \
     scikit-commpy  \
@@ -100,28 +79,21 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     scipy  \
     seaborn  \
     setuptools  \
-   # shutil  \ basics matlab
     sqlalchemy  \
-    # struct  \ basics
-    # sys  \ basics
     tabulate  \
     tensorboardx  \
     tensorflow  \
     tifffile  \
-    # time  \ basics
     torch  \ 
     torchvision  \
     typing  \
     uncompyle6  \
     visdom  \
-   # warnings  \
     xlrd  \
     xmltodict  
     
 
-    
-
-
+#Create Directories
 RUN mkdir -p /data
 RUN mkdir -p /experiments
 RUN mkdir -p /home/dms_search
