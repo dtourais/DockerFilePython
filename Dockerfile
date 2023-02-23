@@ -59,7 +59,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     docopt  \
     dpkt  \
     # functools  \
-    glob  \
+    #Remplacement glob par glob2, a vérifier
+    glob2  \ 
     gpsd-py3  \
     gpxpy  \
     graphviz  \
