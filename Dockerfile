@@ -68,7 +68,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     gym  \
    # hashlib  \ python basics
     h5py  \
-    io  \
+    # io  \ python basics
     ipympl  \
     itertools  \
     joblib  \
