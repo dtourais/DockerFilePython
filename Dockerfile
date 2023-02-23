@@ -114,7 +114,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     typing  \
     uncompyle6  \
     visdom  \
-    warnings  \
+   # warnings  \
     xlrd  \
     xmltodict  
     
