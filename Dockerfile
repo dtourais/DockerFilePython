@@ -86,7 +86,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     pandas  \
     # PIL  \ PIL is pillow
     pillow  \
-    pprint  \
+   # pprint  \ basics
     psutil  \
     pylint  \
     pyserial  \
