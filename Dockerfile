@@ -43,13 +43,13 @@ RUN /venv/bin/pip3 install --no-cache-dir\
 # install all other required python packages
 
 RUN /venv/bin/pip3 install --no-cache-dir \
-    #abc  \
+    #abc  \ basics
     ahrs  \
     alembic  \
     argparse  \
     beautifulsoup4  \
     bokeh  \
-    #collections  \ 
+    #collections  \ basics 
     #copy  \ python absics
     #csv  \ python basics
     dash  \
@@ -72,8 +72,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     ipympl  \
    # itertools  \ python basics
     joblib  \
-    json  \
-    kaleido  \
+   # json  \ Basics
+    kaleido  \ 
     lxml  \
     mako  \
     math  \
