@@ -58,7 +58,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     datetime  \
     docopt  \
     dpkt  \
-    functools  \
+    # functools  \
     glob  \
     gpsd-py3  \
     gpxpy  \
