@@ -92,7 +92,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     pyserial  \
     python-dateutil  \
     #random  \ basics
-    re  \
+    #re  \ basics
     requests  \
     requests_html  \
     scikit-commpy  \
