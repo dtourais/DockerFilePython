@@ -108,8 +108,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     tensorboardx  \
     tensorflow  \
     tifffile  \
-    # time  \
-    torch  \ basics
+    # time  \ basics
+    torch  \ 
     torchvision  \
     typing  \
     uncompyle6  \
