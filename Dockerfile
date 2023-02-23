@@ -50,8 +50,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     beautifulsoup4  \
     bokeh  \
     #collections  \ 
-    #copy  \
-    #csv  \
+    #copy  \ python absics
+    #csv  \ python basics
     dash  \
     dash-bootstrap-components  \
     dash_daq  \
@@ -66,7 +66,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     graphviz  \
     gunicorn  \
     gym  \
-    hashlib  \
+   # hashlib  \ python basics
     h5py  \
     io  \
     ipympl  \
