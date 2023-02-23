@@ -70,7 +70,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     h5py  \
     # io  \ python basics
     ipympl  \
-    itertools  \
+   # itertools  \ python basics
     joblib  \
     json  \
     kaleido  \
