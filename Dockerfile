@@ -78,7 +78,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     mako  \
     # math  \ basics
     matplotlib  \
-    multiprocessing  \
+   # multiprocessing  \ basics
     numpy  \
     opencv-python  \
     openpyxl  \
