@@ -50,7 +50,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     beautifulsoup4  \
     bokeh  \
     #collections  \ 
-    copy  \
+    #copy  \
     csv  \
     dash  \
     dash-bootstrap-components  \
