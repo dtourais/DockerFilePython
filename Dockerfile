@@ -49,7 +49,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     argparse  \
     beautifulsoup4  \
     bokeh  \
-    collections  \
+    #collections  \ 
     copy  \
     csv  \
     dash  \
