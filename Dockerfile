@@ -91,7 +91,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     pylint  \
     pyserial  \
     python-dateutil  \
-    random  \
+    #random  \ basics
     re  \
     requests  \
     requests_html  \
