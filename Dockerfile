@@ -84,7 +84,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     openpyxl  \
    # os  \ basics
     pandas  \
-    PIL  \
+    # PIL  \ PIL is pillow
     pillow  \
     pprint  \
     psutil  \
