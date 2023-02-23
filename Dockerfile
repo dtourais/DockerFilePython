@@ -100,7 +100,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     scipy  \
     seaborn  \
     setuptools  \
-    shutil  \
+   # shutil  \ basics matlab
     sqlalchemy  \
     struct  \
     sys  \
