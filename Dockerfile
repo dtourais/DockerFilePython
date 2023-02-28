@@ -10,7 +10,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   gcc make git openssh-server curl iproute2 tshark \
   && rm -rf /var/lib/apt/lists/*
 
-# replace SH with BASH .
+# replace SH with BASH 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Locales gen
