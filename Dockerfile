@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.0.1-base-ubuntu22.04 
+FROM nvidia/cuda:11.0.3-base-ubuntu20.04 
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
