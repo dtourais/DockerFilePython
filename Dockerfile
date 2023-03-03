@@ -10,6 +10,10 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   gcc make git openssh-server curl iproute2 tshark \
   && rm -rf /var/lib/apt/lists/*
 
+#dependences pour OpenCv
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
+
 # replace SH with BASH 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
