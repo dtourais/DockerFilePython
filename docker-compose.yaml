@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  romain:
+    restart: always
+    image: romains4v/pythondf:1.0.1
+    volumes:
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+      - /home/T0282493:/home/T0282493
+    working_dir: /home/T0282493
+    command: /usr/sbin/sshd -D
+    deploy:
+      resources:
+        limits:
+          memory: 10G
