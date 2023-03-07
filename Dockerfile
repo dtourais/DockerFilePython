@@ -94,8 +94,6 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     setuptools  \
     sqlalchemy  \
     tabulate  \
-    tensorboardx  \
-    tensorflow  \
     tifffile  \
     torch  \ 
     torchvision  \
