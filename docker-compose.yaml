@@ -8,8 +8,8 @@ services:
       - /etc/group:/etc/group:ro
       - /etc/passwd:/etc/passwd:ro
       - /etc/shadow:/etc/shadow:ro
-      - /home/T0282493:/home/T0282493
-    working_dir: /home/T0282493
+      - /home/xx:/home/Txx
+    working_dir: /home/Txx
     command: /usr/sbin/sshd -D
     deploy:
       resources:
