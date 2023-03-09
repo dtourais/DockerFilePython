@@ -103,7 +103,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     visdom  \
     xlrd  \
     xmltodict  
-##The library installed on dLab is Glob, and not Glob2, but it seems it's very similar    
+##The previous lib was Glob, and not Glob2, but it seems it's very similar    
     
 
 #Create Directories
