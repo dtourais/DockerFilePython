@@ -109,5 +109,5 @@ RUN /venv/bin/pip3 install --no-cache-dir \
 #Create Directories
 RUN mkdir -p /data
 RUN mkdir -p /experiments
-RUN mkdir -p /home/dms_search
-WORKDIR /home/dms_search
+RUN mkdir -p /home/
+WORKDIR /home/
