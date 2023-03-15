@@ -73,7 +73,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     ipympl==0.9.3  \
     joblib==1.2.0  \
     kaleido==0.2.1  \ 
-    lxml ==4.9.2 \
+    lxml==4.9.2 \
     mako==1.2.4  \
     matplotlib  \
     numpy==1.24.2  \
