@@ -96,8 +96,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     tabulate==0.9.0  \
     tensorboard==2.12.0 \
     tifffile==2023.2.28  \
-    torch==1.13.1+cu117  \ 
-    torchvision==0.14.1+cu117  \
+    torch==1.13.1  \ 
+    torchvision==0.14.1  \
     typing  \
     uncompyle6==3.9.0  \
     visdom==0.2.4  \
