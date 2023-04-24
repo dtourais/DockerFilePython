@@ -102,7 +102,11 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     uncompyle6==3.9.0  \
     visdom==0.2.4  \
     xlrd==2.0.1  \
-    xmltodict==0.13.0 
+    xmltodict==0.13.0 \
+    scikit-optimize \
+    optuna \
+    hyperopt
+    
 ##The previous lib was Glob, and not Glob2, but it seems it's very similar    
     
 
