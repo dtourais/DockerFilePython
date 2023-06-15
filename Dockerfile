@@ -105,7 +105,9 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     xmltodict==0.13.0 \
     scikit-optimize \
     optuna \
-    hyperopt
+    hyperopt \
+    bashplotlib \
+    albumentations 
     
 ##The previous lib was Glob, and not Glob2, but it seems it's very similar    
     
