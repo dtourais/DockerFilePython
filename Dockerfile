@@ -114,7 +114,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     grad-cam \
     optuna-distributed \
     folium \
-    plotly
+    plotly \
+    kaleido
     
 ##The previous lib was Glob, and not Glob2, but it seems it's very similar    
     
