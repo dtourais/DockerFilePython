@@ -115,7 +115,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     optuna-distributed \
     folium \
     plotly \
-    kaleido
+    kaleido \
+    geopandas
     
 ##The previous lib was Glob, and not Glob2, but it seems it's very similar    
     
