@@ -120,8 +120,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     plotly \
     kaleido \
     geopandas \
-    PyQt5 \
-    colorsys
+    PyQt5
     
 ##The previous lib was Glob, and not Glob2, but it seems it's very similar    
     
