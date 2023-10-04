@@ -39,7 +39,7 @@ RUN echo "PATH=/venv/bin:$PATH" > /etc/profile.d/python_venv.sh
 RUN /venv/bin/pip3 install --upgrade pip --no-cache-dir
 
 # Install Pyinstaller 
-RUN /venv/bin/pip3 install pyinstaller --no-cache-dir \
+RUN /venv/bin/pip3 install pyinstaller --no-cache-dir
 
 # Install jupyterlab and its plotly extension
 RUN /venv/bin/pip3 install --no-cache-dir\
