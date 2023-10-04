@@ -101,7 +101,6 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     tifffile==2023.2.28  \
     torch==1.13.1  \ 
     torchvision==0.14.1  \
-    typing  \
     uncompyle6==3.9.0  \
     visdom==0.2.4  \
     xlrd==2.0.1  \
