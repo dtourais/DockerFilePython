@@ -48,6 +48,8 @@ RUN /venv/bin/pip3 install --no-cache-dir\
     ptvsd==4.3.2 \
     plotly==5.13.1 
 
+# Install Pyinstaller 
+RUN /venv/bin/pip3 install pyinstaller --no-cache-dir
 
 # install all other required python packages
 # Not adding basics python libraries, but we can import them in code directly
@@ -116,7 +118,9 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     folium \
     plotly \
     kaleido \
-    geopandas
+    geopandas \
+    PyQt5 \
+    colorsys
     
 ##The previous lib was Glob, and not Glob2, but it seems it's very similar    
     
