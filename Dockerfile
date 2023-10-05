@@ -39,7 +39,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     jupyterlab>=3 \
     ipywidgets>=7.6 \
     jupyter-dash==0.4.2 \
-    ipython==8.11.0 \
+    ipython==7.16.3\
     ipykernel==6.21.2 \
     ptvsd==4.3.2 \
     plotly==5.13.1 
