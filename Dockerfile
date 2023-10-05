@@ -17,7 +17,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 # Configuration des locales
-RUN yum install -y glibc-langpack-fr && \
+RUN yum install -y glibc-all-langpacks && \
     localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
 
 ENV LC_ALL=fr_FR.UTF-8 \
