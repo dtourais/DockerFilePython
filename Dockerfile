@@ -10,6 +10,10 @@ RUN pip3 install numpy pandas geopandas csvkit PyQt5 matplotlib folium
 
 RUN pip3 install pyinstaller
 
-WORKDIR /app
+#Create Directories
+RUN mkdir -p /data
+RUN mkdir -p /experiments
+RUN mkdir -p /home/
+WORKDIR /home/
 
 CMD ["/bin/bash"]
