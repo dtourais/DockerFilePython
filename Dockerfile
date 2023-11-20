@@ -120,10 +120,8 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     kaleido \
     geopandas \
     PyQt5
-    
-##The previous lib was Glob, and not Glob2, but it seems it's very similar    
-    
 
+    
 #Create Directories
 RUN mkdir -p /data
 RUN mkdir -p /experiments
