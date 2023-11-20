@@ -1,19 +1,9 @@
-FROM nvidia/cuda:11.0.3-base-ubuntu20.04 
+FROM nvidia/cuda:11.0.3-base-ubuntu20.04
 
-# Ajout du PPA pour Python 3.10
-RUN export DEBIAN_FRONTEND=noninteractive \
-  && apt-get update \
-  && apt-get upgrade -y \
-  && apt-get install -y software-properties-common \
-  && add-apt-repository ppa:deadsnakes/ppa \
-  && apt-get update
-
-# Installation de Python 3.10 et des paquets nécessaires
-RUN apt-get install -y \
-  tzdata locales \
-  python3.10 python3.10-dev python3.10-venv python3-pip \
-  gcc make git openssh-server curl iproute2 tshark \
-  && rm -rf /var/lib/apt/lists/*
+# Mettre à jour les paquets et installer les dépendances nécessaires
+RUN apt-get update && apt-get install -y \
+    python3.10 \
+    python3-pip
 
 # Dépendances pour OpenCV
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
