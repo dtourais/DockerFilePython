@@ -84,12 +84,12 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     kaleido==0.2.1  \ 
     lxml==4.9.2 \
     mako==1.2.4  \
-    matplotlib==3.8.0  \  # mise à jour de la version
-    numpy==1.25.2  \  # mise à jour de la version
-    opencv-python==4.8.1.78  \  # mise à jour de la version
+    matplotlib==3.8.0  \
+    numpy==1.25.2  \
+    opencv-python==4.8.1.78  \
     openpyxl==3.1.1  \
-    pandas==2.1.1  \  # mise à jour de la version
-    pillow==10.0.0  \  # mise à jour de la version
+    pandas==2.1.1  \
+    pillow==10.0.0  \
     psutil==5.9.4  \
     pylint==2.16.4  \
     pyserial  \
@@ -105,20 +105,20 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     tabulate==0.9.0  \
     tensorboard==2.12.0 \
     tifffile==2023.2.28  \
-    torch==2.0.1  \  # mise à jour de la version
-    torchvision==0.15.2  \  # mise à jour de la version
+    torch==2.0.1  \
+    torchvision==0.15.2  \
     uncompyle6==3.9.0  \
     visdom==0.2.4  \
     xlrd==2.0.1  \
     xmltodict==0.13.0 \
     scikit-optimize \
-    optuna==2.10.1  \  # mise à jour de la version
+    optuna==2.10.1  \
     hyperopt \
     bashplotlib \
     albumentations \
     timm \
     lightgbm \
-    ultralytics==8.0.193  \  # mise à jour de la version
+    ultralytics==8.0.193  \
     grad-cam \
     optuna-distributed \
     folium \
