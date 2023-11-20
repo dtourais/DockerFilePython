@@ -1,23 +1,27 @@
 FROM nvidia/cuda:11.0.3-base-ubuntu20.04 
 
+# Ajout du PPA pour Python 3.10
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y \
-  software-properties-common \
+  && apt-get install -y software-properties-common \
+  && add-apt-repository ppa:deadsnakes/ppa \
+  && apt-get update
+
+# Installation de Python 3.10 et des paquets nécessaires
+RUN apt-get install -y \
   tzdata locales \
-  python3 python3-dev python3-pip python3-venv \
+  python3.10 python3.10-dev python3.10-venv python3-pip \
   gcc make git openssh-server curl iproute2 tshark \
   && rm -rf /var/lib/apt/lists/*
 
-#dependences pour OpenCv
+# Dépendances pour OpenCV
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 
-
-# replace SH with BASH 
+# Remplacer SH par BASH 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-# Locales gen
+# Configuration des locales
 RUN ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime \
   && dpkg-reconfigure --frontend noninteractive tzdata \
   && export LC_ALL="fr_FR.UTF-8" \
@@ -27,21 +31,23 @@ RUN ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime \
   && locale-gen \
   && dpkg-reconfigure --frontend noninteractive locales
 
-# SSH run folder
+# Configuration de SSH
 RUN mkdir -p /run/sshd
 
-# create python venv
+# Création de l'environnement virtuel Python
 RUN mkdir -p /venv \
-  && python3 -m venv /venv/
+  && python3.10 -m venv /venv/
 
+# Configuration de l'environnement virtuel Python
 RUN echo "PATH=/venv/bin:$PATH" > /etc/profile.d/python_venv.sh
 
+# Mise à jour de pip dans l'environnement virtuel
 RUN /venv/bin/pip3 install --upgrade pip --no-cache-dir
 
-# Install Pyinstaller 
+# Installation de Pyinstaller 
 RUN /venv/bin/pip3 install pyinstaller --no-cache-dir
 
-# Install jupyterlab and its plotly extension
+# Installation de JupyterLab et des extensions
 RUN /venv/bin/pip3 install --no-cache-dir\
     jupyterlab>=3 \
     ipywidgets>=7.6 \
@@ -49,7 +55,7 @@ RUN /venv/bin/pip3 install --no-cache-dir\
     ipython==8.11.0 \
     ipykernel==6.21.2 \
     ptvsd==4.3.2 \
-    plotly==5.13.1 
+    plotly==5.13.1
 
 
 # install all other required python packages
@@ -78,12 +84,12 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     kaleido==0.2.1  \ 
     lxml==4.9.2 \
     mako==1.2.4  \
-    matplotlib  \
-    numpy==1.24.2  \
-    opencv-python  \
+    matplotlib==3.8.0  \ 
+    numpy==1.25.2  \  
+    opencv-python==4.8.1.78  \ 
     openpyxl==3.1.1  \
-    pandas==1.5.3  \
-    pillow  \
+    pandas==2.1.1  \ 
+    pillow==10.0.0  \
     psutil==5.9.4  \
     pylint==2.16.4  \
     pyserial  \
@@ -99,29 +105,48 @@ RUN /venv/bin/pip3 install --no-cache-dir \
     tabulate==0.9.0  \
     tensorboard==2.12.0 \
     tifffile==2023.2.28  \
-    torch==1.13.1  \ 
-    torchvision==0.14.1  \
+    torch==2.0.1  \
+    torchvision==0.15.2  \
     uncompyle6==3.9.0  \
     visdom==0.2.4  \
     xlrd==2.0.1  \
     xmltodict==0.13.0 \
     scikit-optimize \
-    optuna \
+    optuna==2.10.1  \ 
     hyperopt \
     bashplotlib \
     albumentations \
     timm \
     lightgbm \
-    ultralytics \
+    ultralytics==8.0.193  \
     grad-cam \
     optuna-distributed \
     folium \
     plotly \
     kaleido \
     geopandas \
-    PyQt5
-    
-##The previous lib was Glob, and not Glob2, but it seems it's very similar    
+    PyQt5 \
+    hydra-colorlog==1.2.0 \
+    hydra-core==1.3.2 \
+    hydra-optuna-sweeper==1.2.0 \
+    lightning==2.0.7 \
+    lightning-cloud==0.5.37 \
+    lightning-utilities==0.9.0 \
+    nvidia-cublas-cu11==11.10.3.66 \
+    nvidia-cuda-cupti-cu11==11.7.101 \
+    nvidia-cuda-nvrtc-cu11==11.7.99 \
+    nvidia-cuda-runtime-cu11==11.7.99 \
+    nvidia-cudnn-cu11==8.5.0.96 \
+    nvidia-cufft-cu11==10.9.0.58 \
+    nvidia-curand-cu11==10.2.10.91 \
+    nvidia-cusolver-cu11==11.4.0.1 \
+    nvidia-cusparse-cu11==11.7.4.91 \
+    nvidia-nccl-cu11==2.14.3 \
+    nvidia-nvtx-cu11==11.7.91 \
+    pytest==7.4.0 \
+    pyrootutils==1.0.4 \
+    pytorch-lightning==2.0.7 \
+    torchmetrics==1.1.0
     
 
 #Create Directories
