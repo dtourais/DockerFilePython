@@ -18,7 +18,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: romains4v/pythondf
+  IMAGE_NAME: dtourais/extracteur
 
 
 jobs:
@@ -41,8 +41,8 @@ jobs:
       - name: Install cosign
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@v3.1.1
-        with:
-          cosign-release: 'v2.2.1'
+        #with:
+        #  cosign-release: 'v2.2.1'
 
 
 
@@ -73,7 +73,7 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           #tags: ${{ steps.meta.outputs.tags }}
-          tags: romains4v/pythondf:4.0.0
+          tags: dtourais/extracteur:1.0.0
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
