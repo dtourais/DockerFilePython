@@ -1,15 +1,35 @@
 FROM nvidia/cuda:11.0.3-base-ubuntu20.04 
 
+# Set environment variables for configuration
+ENV PYTHON_VERSION=3.10
+
+# Set default values for environment variables
+ENV PYTHONPATH=/usr/local/lib/python${PYTHON_VERSION}/dist-packages
+
+
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
   && apt-get upgrade -y \
   && apt-get install -y \
   software-properties-common \
   tzdata locales \
-  python3.10 python3.10-dev python3-pip python3.10-venv \
+  python${PYTHON_VERSION} \
+  python${PYTHON_VERSION}-dev \
+  python${PYTHON_VERSION}-distutils \
+  python${PYTHON_VERSION}-venv \
   gcc make git openssh-server curl iproute2 tshark zip unzip \
   nvidia-utils-460 \
   && rm -rf /var/lib/apt/lists/*
+
+# Set the default Python version
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python${PYTHON_VERSION} 1
+ 
+# Set the default Python version for pip
+RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip${PYTHON_VERSION} 1
+ 
+# Verify the Python installation
+RUN python --version && \
+    pip --version
 
 #dependences pour OpenCv
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
