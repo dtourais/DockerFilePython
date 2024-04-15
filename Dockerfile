@@ -6,7 +6,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y \
   software-properties-common \
   tzdata locales \
-  python3 python3-dev python3-pip python3-venv \
+  python3.10 python3.10-dev python3-pip python3.10-venv \
   gcc make git openssh-server curl iproute2 tshark zip unzip \
   nvidia-utils-460 \
   && rm -rf /var/lib/apt/lists/*
