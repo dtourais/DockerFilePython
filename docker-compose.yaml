@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  romain:
+  dtourais:
     restart: always
-    image: romains4v/pythondf:1.0.1
+    image: dtourais/extracteur:1.0.0
     volumes:
       - /etc/group:/etc/group:ro
       - /etc/passwd:/etc/passwd:ro
@@ -14,4 +14,5 @@ services:
     deploy:
       resources:
         limits:
-          memory: 10G
+          memory: 20G
+    shm_size: '20G'
