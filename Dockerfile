@@ -1,61 +1,39 @@
-FROM nvidia/cuda:11.0.3-base-ubuntu20.04 
+FROM python:3.10-buster as python-base
 
-RUN export DEBIAN_FRONTEND=noninteractive \
-  && apt-get update \
-  && apt-get upgrade -y \
-  && apt-get install -y \
-  software-properties-common \
-  tzdata locales \
-  python3 python3-dev python3-pip python3-venv \
-  gcc make git openssh-server curl iproute2 tshark \
-  && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+ENV TZ=Europe/Paris
 
-#dependences pour OpenCv
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+RUN echo 'tzdata tzdata/Areas select Europe' | debconf-set-selections
+RUN echo 'tzdata tzdata/Zones/Europe select Paris' | debconf-set-selections
 
+RUN python -m venv /venv
+ENV PATH="/venv/bin:$PATH"
 
-# replace SH with BASH 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    python3-dev \
+    libyaml-dev
 
-# Locales gen
-RUN ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime \
-  && dpkg-reconfigure --frontend noninteractive tzdata \
-  && export LC_ALL="fr_FR.UTF-8" \
-  && export LC_CTYPE="fr_FR.UTF-8" \
-  && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-  && echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
-  && locale-gen \
-  && dpkg-reconfigure --frontend noninteractive locales
+RUN pip install --upgrade pip setuptools wheel
 
-# SSH run folder
-RUN mkdir -p /run/sshd
+RUN pip install "cython<3.0"
 
-# create python venv
-RUN mkdir -p /venv \
-  && python3 -m venv /venv/
-
-RUN echo "PATH=/venv/bin:$PATH" > /etc/profile.d/python_venv.sh
-
-RUN /venv/bin/pip3 install --upgrade pip --no-cache-dir
-
-# Install Pyinstaller 
-RUN /venv/bin/pip3 install pyinstaller --no-cache-dir
-
-# Install jupyterlab and its plotly extension
-RUN /venv/bin/pip3 install --no-cache-dir\
-    jupyterlab>=3 \
-    ipywidgets>=7.6 \
-    jupyter-dash==0.4.2 \
-    ipython==8.11.0 \
-    ipykernel==6.21.2 \
-    ptvsd==4.3.2 \
-    plotly==5.13.1 
-
-
-# install all other required python packages
-# Not adding basics python libraries, but we can import them in code directly
-RUN /venv/bin/pip3 install --no-cache-dir \
-    colorlog==6.8.2  \
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir Flask Folium haversine jupyterlab ipywidgets jupyter-dash \
+    ipython ipykernel ptvsd psycopg2-binary tensorflow keras flask flask-restful flask-cors \
+    xgboost ahrs alembic argparse beautifulsoup4 dash dash-bootstrap-components \
+    dash_daq datetime docopt dpkt glob2 gpsd-py3 gpxpy graphviz gunicorn gym ipympl \
+    joblib kaleido lxml mako opencv-python openpyxl psutil \
+    pylint pyserial python-dateutil requests requests_html scikit-commpy scikit-learn \
+    seaborn sqlalchemy tabulate tifffile uncompyle6 \
+    visdom xlrd xmltodict scikit-optimize optuna hyperopt bashplotlib albumentations timm \
+    lightgbm ultralytics grad-cam optuna-distributed kaleido geopandas gunicorn transformers \
+    datasets torchtext torchaudio \
+	colorlog==6.8.2  \
 	h5py==3.10.0  \
 	packaging==23.2  \
 	Pillow==10.2.0  \
@@ -76,7 +54,7 @@ RUN /venv/bin/pip3 install --no-cache-dir \
 	pandas==2.2.1  \
 	scikit-image==0.22.0  \
 	scipy==1.12.0  \
-	lightning==2.2.0.post0  \
+	lightning==2.2.4  \
 	onnxruntime==1.17.1  \
 	tensorboard==2.15.2  \
 	thop==0.1.1.post2209072238  \
@@ -87,11 +65,31 @@ RUN /venv/bin/pip3 install --no-cache-dir \
 	hydra-colorlog==1.2.0  \
 	hydra-optuna-sweeper==1.2.0  \
 	omegaconf==2.3.0  \
+	argparse>=1.4.0  \
+	progressbar2>=4.2.0
 	
-##The previous lib was Glob, and not Glob2, but it seems it's very similar    
 
-#Create Directories
-RUN mkdir -p /data
-RUN mkdir -p /experiments
-RUN mkdir -p /home/
-WORKDIR /home/
+FROM nvidia/cuda:11.0.3-base-ubuntu20.04 as cuda-base
+
+COPY --from=python-base /venv /venv
+ENV PATH="/venv/bin:$PATH"
+
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    software-properties-common tzdata locales gcc make git openssh-server curl iproute2 tshark \
+    ffmpeg libsm6 libxext6 && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /bin/sh && ln -s /bin/bash /bin/sh
+
+RUN ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime \
+  && dpkg-reconfigure --frontend noninteractive tzdata \
+  && export LC_ALL="fr_FR.UTF-8" \
+  && export LC_CTYPE="fr_FR.UTF-8" \
+  && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+  && echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
+  && locale-gen \
+  && dpkg-reconfigure --frontend noninteractive locales
+
+RUN mkdir -p /run/sshd
+
+RUN mkdir -p /data /experiments /home
+WORKDIR /home
