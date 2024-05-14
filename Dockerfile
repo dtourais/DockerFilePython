@@ -26,14 +26,13 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir Flask Folium haversine jupyterlab ipywidgets jupyter-dash \
     ipython ipykernel ptvsd psycopg2-binary tensorflow keras flask flask-restful flask-cors \
     xgboost ahrs alembic argparse beautifulsoup4 dash dash-bootstrap-components \
-    dash_daq datetime docopt dpkt glob2 gpsd-py3 gpxpy graphviz gunicorn gym ipympl \
-    joblib kaleido lxml mako opencv-python openpyxl psutil \
-    pylint pyserial python-dateutil requests requests_html scikit-commpy scikit-learn \
-    seaborn sqlalchemy tabulate tifffile uncompyle6 \
+    dash_daq datetime docopt dpkt glob2 gpsd-py3 gpxpy graphviz gunicorn gym h5py ipympl \
+    joblib kaleido lxml setuptools mako matplotlib opencv-python openpyxl pandas pillow psutil \
+    pylint pyserial python-dateutil requests requests_html scikit-commpy scikit-learn scipy \
+    seaborn sqlalchemy tabulate tensorboard tifffile torch torchvision uncompyle6 \
     visdom xlrd xmltodict scikit-optimize optuna hyperopt bashplotlib albumentations timm \
     lightgbm ultralytics grad-cam optuna-distributed kaleido geopandas gunicorn transformers \
     datasets torchtext torchaudio
-	
 
 FROM nvidia/cuda:11.0.3-base-ubuntu20.04 as cuda-base
 
